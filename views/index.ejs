@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY APP</title>
+</head>
+<body>
+<h1> Wellcome to the Cukcoo's blog </h1>
+<p>That's great when you get here where stories are shared and listened</p>
+<div>
+    <div class="posts" style="display: flex; flex-wrap: wrap; justify-content: space-around">
+        <!-- Loop through quotes -->
+        <% for(var i = 0; i < posts.length; i++) {%>
+            <div class="post" style="border: solid 1px black; margin: 10px 5px; width: 30%">
+                <!-- Output name from the iterated quote object -->
+                <p style="font-weight: bold; text-align: center"><%= posts[i].title %></p>
+                <!-- Output quote from the iterated quote object -->
+                <p><%= posts[i].content %></p>
+                <p>Post id: ObjectId("<%= posts[i]._id %>")</p>
+
+            </div>
+        <% } %>
+    </div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 50px; border: solid 1px black; padding: 10px">
+    <div style="border: solid 1px black">
+        <p>Create your own post:</p>
+        <div>
+            <form action="/add" method="POST">
+                <input type="text" placeholder="Title" name="title"><br><br>
+                <input type="text" placeholder="Content" name="content"><br><br>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="border: solid 1px black">
+        <p>Edit a post:</p>
+        <div>
+            <form action="/edit" method="POST">
+                <input placeholder="Post id" name="id"><br><br>
+                <input type="text" placeholder="Title" name="title"><br><br>
+                <input type="text" placeholder="Content" name="content"><br><br>
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="border: solid 1px black">
+        <p>Delete a post:</p>
+        <div>
+            <form action="/delete" method="POST">
+                <input type="text" placeholder="Title" name="title"><br><br>
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </div>
+
+    <div style="border: solid 1px black">
+        <p>Find post: </p>
+        <div>
+            <form action="/find" method="GET">
+                <input type="text" placeholder="Find by ..." name="content"><br><br>
+                <button type="submit">Find</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY APP</title>
+</head>
+<body>
+<div class="posts" style="display: flex; flex-wrap: wrap; justify-content: space-around">
+    <!-- Loop through quotes -->
+    <% for(var j = 0; j < findingPost.length; j++) {%>
+        <div class="post" style="border: solid 1px black; margin: 10px 5px; width: 30%">
+            <p style="font-weight: bold; text-align: center"><%= findingPost[j].title %></p>
+            <p><%= findingPost[j].content %></p>
+            <p>Post id: ObjectId("<%= findingPost[j]._id %>")</p>
+        </div>
+    <% } %>
+</div>
+</body>
+</html>
